@@ -64,14 +64,25 @@ function operate() {
 
 do {
   operate();
-  let askUser = prompt("Do you want to continue? (yes/no): ").toLowerCase();
-  if (askUser === "yes") {
-    shouldContinue = true;
-  } else if (askUser === "no") {
-    shouldContinue = false;
-  } else {
-    console.log("Wrong input!");
+  try{
+    let askUser = prompt("Do you want to continue? (yes/no): ").toLowerCase();
+    if (askUser === "yes") {
+      shouldContinue = true;
+      console.log('\n'.repeat(100)); // This is because it does not leave "Console was cleared" message :D
+    } else if (askUser === "no") {
+      shouldContinue = false;
+    } else {
+      console.log("Wrong input!");
+      shouldContinue = false;
+      console.log(shouldContinue);
+    }
   }
-} while (shouldContinue === true);
+  catch (exceptionVar){
+    console.log("Choose something!");
+    shouldContinue = false;
+    console.log(shouldContinue);
+  }
+  
+}while (shouldContinue === true);
 
-welcome();
+
