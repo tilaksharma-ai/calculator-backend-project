@@ -1,3 +1,5 @@
+let shouldContinue = false;
+
 function sum(a, b) {
   let sumAll = 0;
   for (a; a <= b; a++) {
@@ -22,34 +24,32 @@ function multiply(a, b) {
 function divide(a, b) {
   if (b === 0) {
     console.log("Can't divide with 0!");
-  }
-  else{
+  } else {
     console.log(a / b);
   }
 }
 
-function welcome(){
-    message = '=== JavaScript Calculator ===';
-    console.log(message);
+function welcome() {
+  message = "=== JavaScript Calculator ===";
+  console.log(message);
 }
 
-function takeInput(){
-    let firstNumber = Number(prompt("Enter first number: "));
-    let operator = prompt("Enter operator (+, -, *, /): ");
-    let secondNumber = Number(prompt("Enter second number: "));
-    return [firstNumber, operator, secondNumber];
+function takeInput() {
+  let firstNumber = Number(prompt("Enter first number: "));
+  let operator = prompt("Enter operator (+, -, *, /): ");
+  let secondNumber = Number(prompt("Enter second number: "));
+  return [firstNumber, operator, secondNumber];
 }
 
-
-function operate(){
+function operate() {
   welcome();
   let [firstNumber, operator, secondNumber] = takeInput();
-  switch (operator){
+  switch (operator) {
     case "+":
       add(firstNumber, secondNumber);
       break;
     case "-":
-      subtract(firstNumber,secondNumber);
+      subtract(firstNumber, secondNumber);
       break;
     case "*":
       multiply(firstNumber, secondNumber);
@@ -57,9 +57,21 @@ function operate(){
     case "/":
       divide(firstNumber, secondNumber);
       break;
-    default:
+    case "" || " ":
       console.log("Wrong operator!");
   }
 }
 
-operate();
+do {
+  operate();
+  let askUser = prompt("Do you want to continue? (yes/no): ").toLowerCase();
+  if (askUser === "yes") {
+    shouldContinue = true;
+  } else if (askUser === "no") {
+    shouldContinue = false;
+  } else {
+    console.log("Wrong input!");
+  }
+} while (shouldContinue === true);
+
+welcome();
