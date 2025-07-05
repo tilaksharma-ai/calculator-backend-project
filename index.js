@@ -1,5 +1,7 @@
 let shouldContinue = false;
 
+// Commented this piece of code, will add this feature later
+/* 
 function sum(a, b) {
   let sumAll = 0;
   for (a; a <= b; a++) {
@@ -8,6 +10,8 @@ function sum(a, b) {
   }
   return sumAll;
 }
+*/
+
 
 function add(a, b) {
   console.log(a + b);
