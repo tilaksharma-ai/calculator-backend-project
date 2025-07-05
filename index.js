@@ -31,3 +31,9 @@ function welcome(){
     console.log(message);
 }
 
+function takeInput(){
+    firstNumber = Number(prompt("Enter first number: "));
+    operator = prompt("Enter operator (+, -, *, /): ");
+    secondNumber = Number(prompt("Enter second number: "));
+    return firstNumber, operator, secondNumber;
+}
