@@ -8,22 +8,24 @@ function sum(a, b) {
 }
 
 function add(a, b) {
-  return a + b;
+  console.log(a + b);
 }
 
 function subtract(a, b) {
-  return a - b;
+  console.log(a - b);
 }
 
 function multiply(a, b) {
-  return a * b;
+  console.log(a * b);
 }
 
 function divide(a, b) {
   if (b === 0) {
-    return "Can't divide with 0!";
+    console.log("Can't divide with 0!");
   }
-  return a / b;
+  else{
+    console.log(a / b);
+  }
 }
 
 function welcome(){
@@ -32,8 +34,32 @@ function welcome(){
 }
 
 function takeInput(){
-    firstNumber = Number(prompt("Enter first number: "));
-    operator = prompt("Enter operator (+, -, *, /): ");
-    secondNumber = Number(prompt("Enter second number: "));
-    return firstNumber, operator, secondNumber;
+    let firstNumber = Number(prompt("Enter first number: "));
+    let operator = prompt("Enter operator (+, -, *, /): ");
+    let secondNumber = Number(prompt("Enter second number: "));
+    return [firstNumber, operator, secondNumber];
 }
+
+
+function operate(){
+  welcome();
+  let [firstNumber, operator, secondNumber] = takeInput();
+  switch (operator){
+    case "+":
+      add(firstNumber, secondNumber);
+      break;
+    case "-":
+      subtract(firstNumber,secondNumber);
+      break;
+    case "*":
+      multiply(firstNumber, secondNumber);
+      break;
+    case "/":
+      divide(firstNumber, secondNumber);
+      break;
+    default:
+      console.log("Wrong operator!");
+  }
+}
+
+operate();
